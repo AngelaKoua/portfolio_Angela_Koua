@@ -1,0 +1,92 @@
+.hero {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 16px 32px 72px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: center;
+  min-height: 700px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif), Garamond, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: clamp(46px, 5.2vw, 78px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--flower-deep);
+}
+
+.intro {
+  margin: 0;
+  max-width: 460px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.art {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  overflow: hidden;
+}
+
+.art > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-bottom: 40px;
+  }
+
+  .art {
+    justify-self: center;
+  }
+
+  /* Sur téléphone, tout le texte est centré */
+  .text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}

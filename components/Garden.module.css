@@ -1,0 +1,77 @@
+.garden {
+  position: relative;
+  padding: 96px 32px 0;
+  background: var(--garden-bg);
+}
+
+/* Bord ondulé entre le haut de page et le jardin */
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  display: block;
+}
+
+.edge path {
+  fill: var(--bg);
+}
+
+.intro {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.lead {
+  margin: 0 0 6px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* Petite vrille au départ de la tige */
+.sprout {
+  max-width: 1116px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.sprout svg {
+  display: block;
+}
+
+.list {
+  max-width: 1116px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 860px) {
+  .garden {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* La vrille se place au-dessus de la tige, alignée à gauche */
+  .sprout {
+    justify-content: flex-start;
+  }
+
+  .sprout svg {
+    margin-left: -70px;
+  }
+
+  .list {
+    padding: 0 0 48px;
+  }
+}

@@ -1,0 +1,208 @@
+.header {
+  position: relative;
+  z-index: 2;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span {
+  font-family: var(--font-serif), Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.nav a {
+  position: relative;
+  padding: 10px 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 1.5px;
+  background: var(--flower);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Éléments propres au menu téléphone, masqués sur grand écran */
+.toggle,
+.backdrop,
+.navSprig {
+  display: none;
+}
+
+/* Sur téléphone : nom centré, menu rangé derrière une icône sur le côté */
+@media (max-width: 860px) {
+  .header {
+    z-index: 50;
+  }
+
+  .inner {
+    justify-content: center;
+    padding: 22px 76px;
+  }
+
+  .toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: 0 10px 24px -14px rgba(40, 36, 60, 0.55);
+    cursor: pointer;
+  }
+
+  .toggleIcon {
+    position: relative;
+    width: 20px;
+    height: 14px;
+  }
+
+  .toggleIcon span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+  }
+
+  .toggleIcon span:nth-child(1) { top: 0; }
+  .toggleIcon span:nth-child(2) { top: 6px; }
+  .toggleIcon span:nth-child(3) { top: 12px; }
+
+  /* L’icône se change en croix quand le menu est ouvert */
+  .toggle[aria-expanded="true"] .toggleIcon span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+
+  .toggle[aria-expanded="true"] .toggleIcon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle[aria-expanded="true"] .toggleIcon span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    background: rgba(30, 28, 20, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  /* Panneau qui glisse depuis la droite */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: min(300px, 82vw);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 96px 24px 40px;
+    background: var(--card);
+    border-left: 1px solid var(--border);
+    box-shadow: -20px 0 40px -30px rgba(40, 36, 60, 0.55);
+    font-family: var(--font-serif), Garamond, "Times New Roman", serif;
+    font-size: 28px;
+    letter-spacing: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    /* Reste visible pendant la fermeture, puis se masque (et sort de l’ordre du clavier) */
+    transition: transform 0.35s ease, visibility 0s linear 0.35s;
+  }
+
+  .backdrop.open,
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  /* À l’ouverture, visible tout de suite pour pouvoir recevoir le focus */
+  .nav.open {
+    transition: transform 0.35s ease, visibility 0s;
+  }
+
+  .backdrop.open {
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+
+  .nav a {
+    padding: 10px 4px;
+  }
+
+  .navSprig {
+    display: block;
+    width: 120px;
+    height: 70px;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 860px) and (prefers-reduced-motion: reduce) {
+  .nav,
+  .backdrop,
+  .toggleIcon span {
+    transition: none;
+  }
+}

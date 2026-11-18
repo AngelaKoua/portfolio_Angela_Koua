@@ -1,0 +1,204 @@
+/* Une carte façon planche d’herbier, maintenue par deux morceaux de ruban adhésif */
+.card {
+  position: relative;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 40px -26px rgba(40, 36, 60, 0.45);
+  transition: transform 0.4s ease;
+}
+
+.tiltLeft {
+  transform: rotate(-1.2deg);
+}
+
+.tiltRight {
+  transform: rotate(1deg);
+}
+
+.tape {
+  position: absolute;
+  top: -11px;
+  height: 22px;
+  background: var(--flower-light);
+  opacity: 0.55;
+}
+
+.tapeLeft {
+  left: 26px;
+  width: 74px;
+  transform: rotate(-6deg);
+}
+
+.tapeRight {
+  right: 26px;
+  width: 64px;
+  transform: rotate(5deg);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--placeholder);
+  border: 1px solid var(--border);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.sprig {
+  width: 30%;
+  height: auto;
+}
+
+.harvest {
+  margin: 4px 0 0;
+  font-family: var(--font-hand), "Bradley Hand", cursive;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--flower-deep);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif), Garamond, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.title:focus {
+  outline: none;
+}
+
+.title:focus-visible {
+  outline: 2px dashed var(--btn);
+  outline-offset: 4px;
+}
+
+.desc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--placeholder-ink);
+}
+
+.link {
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--btn);
+  text-underline-offset: 4px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin-left: auto;
+}
+
+/* Petit bouton qui mène à la page dédiée du projet */
+.detailsBtn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--btn);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--btn);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.detailsBtn:hover {
+  background: var(--btn);
+  color: var(--btn-text);
+}
+
+.budContent {
+  align-items: flex-start;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.budText {
+  margin: 0;
+  font-family: var(--font-hand), "Bradley Hand", cursive;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+@media (max-width: 860px) {
+  .tiltLeft,
+  .tiltRight {
+    transform: none;
+  }
+}
+
+/* Sur téléphone : contenu de la carte centré */
+@media (max-width: 860px) {
+  .content,
+  .budContent {
+    align-items: center;
+    text-align: center;
+  }
+
+  .media {
+    align-self: stretch;
+  }
+
+  .meta,
+  .tags,
+  .actions {
+    justify-content: center;
+  }
+
+  .actions {
+    margin-left: 0;
+  }
+}

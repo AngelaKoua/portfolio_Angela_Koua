@@ -1,0 +1,185 @@
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px minmax(0, 1fr);
+  column-gap: 28px;
+  height: 480px;
+  align-items: center;
+}
+
+.cardCell {
+  order: 1;
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+}
+
+.stemCell {
+  order: 2;
+  position: relative;
+  width: 200px;
+  height: 480px;
+  align-self: stretch;
+}
+
+.spacer {
+  order: 3;
+}
+
+/* Lignes impaires : la carte passe à droite et la tige est retournée */
+.right .cardCell {
+  order: 3;
+  justify-self: start;
+}
+
+.right .spacer {
+  order: 1;
+}
+
+.stemSvg {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.right .stemSvg {
+  transform: scaleX(-1);
+}
+
+/* Bourgeon cliquable au bout de la petite branche */
+.budWrap {
+  position: absolute;
+  left: -2px;
+  top: 160px;
+  width: 64px;
+  height: 64px;
+}
+
+.right .budWrap {
+  left: 138px;
+}
+
+.bud {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.bud:hover {
+  transform: scale(1.1);
+}
+
+.bud svg {
+  display: block;
+  transform-origin: 50% 80%;
+  animation: wobble 3.2s ease-in-out infinite;
+}
+
+.halo {
+  fill: var(--flower-light);
+  opacity: 0.4;
+}
+
+/* Fleur épanouie */
+.flower {
+  position: absolute;
+  left: -10px;
+  top: 152px;
+  width: 80px;
+  height: 80px;
+}
+
+.right .flower {
+  left: 130px;
+}
+
+.flower svg {
+  display: block;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bud svg {
+    animation: none;
+  }
+}
+
+/* Éléments propres au téléphone, masqués sur grand écran */
+.stemMobile,
+.leavesMobile {
+  display: none;
+}
+
+/*
+ * Sur téléphone : la branche devient une tige verticale continue à gauche,
+ * avec un bourgeon à faire éclore à hauteur de chaque carte.
+ */
+@media (max-width: 860px) {
+  .row {
+    grid-template-columns: 60px minmax(0, 1fr);
+    column-gap: 10px;
+    height: auto;
+    align-items: stretch;
+  }
+
+  .stemCell,
+  .right .stemCell {
+    order: 1;
+    width: 60px;
+    height: auto;
+    min-height: 220px;
+  }
+
+  .cardCell,
+  .right .cardCell {
+    order: 2;
+    justify-self: stretch;
+    max-width: none;
+    padding: 14px 0 28px;
+  }
+
+  .spacer,
+  .stemSvg {
+    display: none;
+  }
+
+  .stemMobile {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .leavesMobile {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .budWrap,
+  .right .budWrap {
+    left: -2px;
+    top: 22px;
+  }
+
+  .flower,
+  .right .flower {
+    left: -10px;
+    top: 14px;
+  }
+}

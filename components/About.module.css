@@ -1,0 +1,136 @@
+.about {
+  position: relative;
+  padding: 0 32px 110px;
+  background: var(--soil);
+}
+
+/* Ligne de terre ondulée qui sépare le jardin des racines */
+.ground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  display: block;
+}
+
+.ground path {
+  fill: var(--garden-bg);
+}
+
+.rootsWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.roots {
+  display: block;
+}
+
+.grid {
+  max-width: 1000px;
+  margin: 36px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 40px 48px;
+  align-items: center;
+}
+
+/* Titre centré au-dessus de la photo et du texte */
+.heading {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+/* Portrait en arche, sous le titre */
+.portrait {
+  position: relative;
+  justify-self: center;
+  margin: 0;
+  width: 100%;
+  max-width: 280px;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 999px 999px 18px 18px;
+  border: 1px solid var(--border);
+  background: var(--placeholder);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Petit brin fleuri posé sur le coin du cadre */
+.sprig {
+  position: absolute;
+  left: -26px;
+  bottom: -22px;
+  width: 90px;
+  height: 90px;
+  pointer-events: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 10px;
+}
+
+/* Sans photo, le texte occupe toute la largeur, centré */
+.bodyAlone {
+  grid-column: 1 / -1;
+  align-items: center;
+  text-align: center;
+}
+
+.body p {
+  margin: 0;
+  max-width: 34em;
+  font-family: var(--font-serif), Garamond, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .about {
+    padding-top: 64px;
+  }
+
+  .rootsWrap {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .body p {
+    font-size: 22px;
+  }
+
+  /* Sur téléphone, titre, photo, texte et bouton sont centrés */
+  .heading,
+  .body {
+    align-items: center;
+    text-align: center;
+  }
+
+  .portrait {
+    max-width: 220px;
+    margin: 16px auto 12px;
+  }
+}
