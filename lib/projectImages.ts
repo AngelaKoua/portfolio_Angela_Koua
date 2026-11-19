@@ -11,6 +11,6 @@ export function withExistingImage(project: Project): Project {
   if (!project.image || project.image.startsWith("http")) return project;
   const file = path.join(process.cwd(), "public", decodeURI(project.image));
   if (existsSync(file)) return project;
-  const { image: _image, imageAlt: _imageAlt, ...rest } = project;
+  const { image: _image, imageAlt: _imageAlt, imageCredit: _imageCredit, ...rest } = project;
   return rest;
 }

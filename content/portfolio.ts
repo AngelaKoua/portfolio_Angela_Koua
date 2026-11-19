@@ -8,6 +8,8 @@ export type Project = {
   tags: string[];
   image?: string;
   imageAlt?: string;
+  /** Crédit affiché sous l’image sur la page du projet (obligatoire pour une photo sous licence Creative Commons). */
+  imageCredit?: { text: string; href: string };
   href?: string;
 };
 
@@ -53,24 +55,14 @@ Avant d’aborder le domaine aéronautique, j’ai construit deux prototypes pou
 
 Le projet est en cours. Les objectifs sont fixés dès le départ : le bon paragraphe dans les cinq premiers résultats pour au moins 90 % des questions de test, une référence correcte dans au moins 90 % des réponses, et un refus pour au moins 90 % des questions hors corpus. La version finale sera déployée sous forme d’API sur AWS.`,
     year: "2026",
-    tags: ["NLP", ""],
-    image: "/projects/rag-aeronautique.png",
-    imageAlt: "Aperçu du RAG dédié à l’aéronautique",
-    href: "#",
-  },
-  {
-    title: "CRM for a small business",
-    description: "Un système de gestion de la relation client adapté aux besoins d'une petite entreprise",
-    details: `Beaucoup de petites entreprises suivent encore leurs clients dans des tableurs, des carnets ou des messages dispersés. Les informations se perdent, les relances sont oubliées et il devient difficile d’avoir une vue d’ensemble de l’activité commerciale.
-
-J’ai conçu un CRM (gestion de la relation client) pensé pour ces structures : un outil simple qui centralise les informations sur les clients et le suivi des échanges, sans la complexité des solutions conçues pour les grands groupes.
-
-L’API est développée avec NestJS, un framework Node.js organisé en modules, et les données sont stockées dans Supabase, qui repose sur PostgreSQL. Ce projet m’a appris à partir des besoins concrets d’une petite structure pour définir les fonctionnalités vraiment utiles, et à organiser une API back-end de façon claire et maintenable.`,
-    year: "2026",
-    tags: ["Nest.js", "Supabase"],
-    image: "/projects/crm.png",
-    imageAlt: "Aperçu du CRM pour petite entreprise",
-    href: "#",
+    tags: ["NLP", "Embeddings", "vector database", "streamlit"],
+    image: "/projects/rag-aeronautique.jpg",
+    imageAlt: "Un Boeing 737 dans un hangar de maintenance aéronautique",
+    imageCredit: {
+      text: "Photo : Caholguin109, CC BY-SA 4.0, via Wikimedia Commons",
+      href: "https://commons.wikimedia.org/wiki/File:United_737_at_Orlando_Maintenance_Hangar.jpg",
+    },
+    href: "",
   },
   {
     title: "CEO Dashboard",

@@ -36,12 +36,14 @@ export default function ProjectCard({ project, isOpen, shouldFocus, tilt, onBloo
 
       {isOpen ? (
         <div className={`${styles.content} appear`}>
-          <div className={styles.media}>
+          <div className={`${styles.media} ${project.image ? styles.mediaImage : ""}`}>
             {project.image ? (
+              // Largeur et hauteur à 0 + style : le cadre prend la forme réelle de l’image
               <Image
                 src={project.image}
                 alt={project.imageAlt ?? ""}
-                fill
+                width={0}
+                height={0}
                 sizes="(max-width: 860px) 100vw, 420px"
                 className={styles.image}
               />

@@ -54,8 +54,18 @@
   border: 1px solid var(--border);
 }
 
+/* Avec une image : le cadre s’adapte à ses proportions au lieu d’imposer du 16:9 */
+.mediaImage {
+  aspect-ratio: auto;
+}
+
 .image {
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Garde-fou pour une image très haute : elle est réduite sans être rognée */
+  max-height: 300px;
+  object-fit: contain;
 }
 
 .sprig {
