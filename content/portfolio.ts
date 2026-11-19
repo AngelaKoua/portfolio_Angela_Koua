@@ -57,11 +57,8 @@ Le projet est en cours. Les objectifs sont fixés dès le départ : le bon parag
     year: "2026",
     tags: ["NLP", "Embeddings", "vector database", "streamlit"],
     image: "/projects/rag-aeronautique.jpg",
-    imageAlt: "Un Boeing 737 dans un hangar de maintenance aéronautique",
-    imageCredit: {
-      text: "Photo : Caholguin109, CC BY-SA 4.0, via Wikimedia Commons",
-      href: "https://commons.wikimedia.org/wiki/File:United_737_at_Orlando_Maintenance_Hangar.jpg",
-    },
+    // Photo du domaine public (Luc Willems, Wikimedia Commons) : aucun crédit obligatoire
+    imageAlt: "Un Boeing 737 devant un hangar de maintenance aéronautique",
     href: "",
   },
   {
