@@ -56,9 +56,9 @@ Avant d’aborder le domaine aéronautique, j’ai construit deux prototypes pou
 Le projet est en cours. Les objectifs sont fixés dès le départ : le bon paragraphe dans les cinq premiers résultats pour au moins 90 % des questions de test, une référence correcte dans au moins 90 % des réponses, et un refus pour au moins 90 % des questions hors corpus. La version finale sera déployée sous forme d’API sur AWS.`,
     year: "2026",
     tags: ["NLP", "Embeddings", "vector database", "streamlit"],
-    image: "/projects/rag-aeronautique.jpg",
+    image: "/avion.webp",
     // Photo du domaine public (Luc Willems, Wikimedia Commons) : aucun crédit obligatoire
-    imageAlt: "Un Boeing 737 devant un hangar de maintenance aéronautique",
+    imageAlt: "Avion couché de soleil",
     href: "",
   },
   {
