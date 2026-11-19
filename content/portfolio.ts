@@ -130,7 +130,7 @@ Côté data science, j’ai généré un jeu de données synthétique de mesures
 L’API est développée avec FastAPI et PostgreSQL. Un ETL alimente un entrepôt de données en schéma en étoile, utilisé pour les analyses : indicateurs globaux, séries temporelles, comparaison entre techniciens et corrélations. Ce projet m’a permis de construire toute la chaîne, de la donnée brute jusqu’à une application complète.`,
     year: "2026",
     tags: ["Next.js", "FastAPI", "Neon DB", "PosgreSQL"],
-    image: "/projects/colatrack.png",
+    image: "/Colatrack.png",
     imageAlt: "Aperçu de la plateforme ColaTrack",
     href: "https://cola-track.vercel.app/",
   },
