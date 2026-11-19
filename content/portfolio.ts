@@ -114,7 +114,7 @@ C’est une application full-stack : un frontend Next.js, une API REST en Flask 
 Ce projet m’a appris à écrire un prompt système capable de produire plusieurs types de réponses, à gérer la fenêtre de contexte d’une longue conversation, et à déployer une application en trois parties sur Vercel, Render et Neon.`,
     year: "2025",
     tags: ["NLP", "LLM", "Next.js", "Flask", "Grok API", "Neon DB"],
-    image: "/ideazbot.png",
+    image: "/ideaz_bot.png",
     imageAlt: "Aperçu de l’interface du chatbot IdeazBot",
     href: "https://chatbot-ideation.vercel.app/",
   },
